@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "940296854452",
+    "firebase_url": "https://anonymous-voice.firebaseio.com",
+    "project_id": "anonymous-voice",
+    "storage_bucket": "anonymous-voice.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:940296854452:android:517111fde4cb8872",
+        "android_client_info": {
+          "package_name": "com.example.root.anonymousvoice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "940296854452-j3hbk8sb73c0ts9ap448loii1st785sa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.root.anonymousvoice",
+            "certificate_hash": "08e1fd953d637b6fd1906ef4b61b8b11727c9ec4"
+          }
+        },
+        {
+          "client_id": "940296854452-583lha42q1u4vsb621j9s8jp863pjn4d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiMH_7QtIJ_PqqS_Vv9_wPxD389imTGBc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "940296854452-583lha42q1u4vsb621j9s8jp863pjn4d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

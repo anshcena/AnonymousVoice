@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
     <TextView
         android:id="@+id/text"
         android:layout_width="wrap_content"
@@ -52,10 +51,10 @@
         android:layout_alignTop="@+id/fbbutton"
         android:layout_marginEnd="56dp"
         android:layout_marginRight="56dp"
-        android:background="@android:color/transparent"
+        android:background="@drawable/tw"
         android:scaleType="fitCenter"
         android:visibility="visible"
-        app:srcCompat="@drawable/sd" />
+        app:srcCompat="@drawable/tw" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
