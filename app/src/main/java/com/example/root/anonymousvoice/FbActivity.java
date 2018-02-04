@@ -2,6 +2,7 @@ package com.example.root.anonymousvoice;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -10,6 +11,14 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import static android.os.Build.VERSION_CODES.O;
 
 public class FbActivity extends AppCompatActivity {
 
@@ -44,25 +53,57 @@ public class FbActivity extends AppCompatActivity {
 
 
         //Spinner
-
+        // making adapter view
         ArrayAdapter<CharSequence> adapter= ArrayAdapter.createFromResource(this,R.array.categories, android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         category.setAdapter(adapter);
-        category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                int item=category.getSelectedItemPosition();
-             //   int y=[item];
-             //   Toast.makeText(getApplicationContext(),y,Toast.LENGTH_SHORT).show();
-            }
 
+                 category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                        Toast.makeText(FbActivity.this, " CATEGORY : "+ String.valueOf(category.getSelectedItem()), Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
+
+            //attachments
+        attachment.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
+            public void onClick(View view) {
+
 
             }
         });
 
-        //
+
+        //  postbutton
+
+        Postfacebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //addValueEventListener(ValueEventListener);
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("message");
+
+                myRef.setValue("Hello, World!");
+            }
+        });
+
+
+
+
+
+
+
+
+
+
 
 
 
