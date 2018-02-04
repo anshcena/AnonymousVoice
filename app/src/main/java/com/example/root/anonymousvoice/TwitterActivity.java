@@ -11,6 +11,9 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class TwitterActivity extends AppCompatActivity {
     EditText description;
     Spinner category;
@@ -61,6 +64,35 @@ public class TwitterActivity extends AppCompatActivity {
 
             }
         });
+
+
+
+
+
+        //attachments
+        attachment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+            }
+        });
+
+
+        //  postbutton
+
+        Posttwitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //addValueEventListener(ValueEventListener);
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("message");
+
+                myRef.setValue("Hello, World!");
+            }
+        });
+
 
     }
 }
