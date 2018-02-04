@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AnonymousVoice</string>
+    <string-array name="categories">
+        <item> this post</item>
+        <item>that post</item>
+        <item>post catalog</item>
+    </string-array>
 </resources>

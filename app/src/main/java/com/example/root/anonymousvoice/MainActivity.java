@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent jumpfbactivity=new Intent(getApplicationContext(),FbActivity.class);
+                startActivity(jumpfbactivity);
 
             }
         });
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent jumptwitteractivity=new Intent(getApplicationContext(),TwitterActivity.class);
+                startActivity(jumptwitteractivity);
             }
         });
 
