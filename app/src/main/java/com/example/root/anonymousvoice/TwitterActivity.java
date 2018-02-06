@@ -1,5 +1,6 @@
 package com.example.root.anonymousvoice;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +20,8 @@ public class TwitterActivity extends AppCompatActivity {
     Spinner category;
     ImageButton attachment;
     Button Posttwitter;
+    public static final int Pick_Image=2;
+    String inputdata;                //description
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +41,7 @@ public class TwitterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String inputdata;
+
                 inputdata=description.getText().toString();
 
             }
@@ -69,27 +72,18 @@ public class TwitterActivity extends AppCompatActivity {
 
 
 
-        //attachments
-        attachment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-            }
-        });
-
 
         //  postbutton
 
         Posttwitter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                int c=0;
                 //addValueEventListener(ValueEventListener);
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("message");
-
-                myRef.setValue("Hello, World!");
+                DatabaseReference myRef = database.getReference("message"+inputdata);
+                c++;
+                myRef.setValue(""+inputdata);
             }
         });
 

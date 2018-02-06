@@ -1,5 +1,6 @@
 package com.example.root.anonymousvoice;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,7 +27,7 @@ public class FbActivity extends AppCompatActivity {
     Spinner category;
     ImageButton attachment;
     Button Postfacebook;
-
+  public static final int Pick_Image=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +77,10 @@ public class FbActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                Intent intent=new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+              startActivityForResult(Intent.createChooser(intent, "Select Picture"), Pick_Image);
 
             }
         });
@@ -87,13 +92,14 @@ public class FbActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //addValueEventListener(ValueEventListener);
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference myRef = database.getReference("message");
 
                 myRef.setValue("Hello, World!");
             }
         });
+
+
 
 
 

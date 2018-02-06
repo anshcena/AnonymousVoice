@@ -103,7 +103,8 @@
         android:layout_alignLeft="@+id/ttt"
         android:layout_alignStart="@+id/ttt"
         android:layout_marginLeft="12dp"
-        android:layout_marginStart="12dp" />
+        android:layout_marginStart="12dp"
+        android:id="@+id/exit"/>
 
 
 </RelativeLayout>
