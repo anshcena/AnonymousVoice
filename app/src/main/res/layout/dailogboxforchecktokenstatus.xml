@@ -12,18 +12,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/gofb"
-        android:text="GO TO FACEBOOK PAGE"/>
+        android:text="GO TO FACEBOOK PAGE"
+        android:onClick="onRadioButtonClicked"/>
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="GO TO TWITTER ACCOUNT"
         android:id="@+id/gotw"
+        android:onClick="onRadioButtonClicked"
         />
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CHECK TOKEN STATUS"
         android:id="@+id/checkstatus"
+        android:onClick="onRadioButtonClicked"
         />
     </RadioGroup>
 
