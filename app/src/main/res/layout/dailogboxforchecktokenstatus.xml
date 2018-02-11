@@ -4,31 +4,44 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="CHOOSE YOUR OPTION" />
+
     <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/radio"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center">
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/gofb"
-        android:text="GO TO FACEBOOK PAGE"
-        />
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="GO TO TWITTER ACCOUNT"
-        android:id="@+id/gotw"
 
-        />
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CHECK TOKEN STATUS"
-        android:id="@+id/checkstatus"
+        <RadioButton
+            android:id="@+id/gofb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GO TO FACEBOOK PAGE" />
 
-        />
+        <RadioButton
+            android:id="@+id/gotw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GO TO TWITTER ACCOUNT"
+
+            />
+
+        <RadioButton
+            android:id="@+id/checkstatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CHECK TOKEN STATUS"
+
+            />
     </RadioGroup>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
 
 </LinearLayout>

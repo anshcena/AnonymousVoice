@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity  {
             public void onClick(View view) {
                 final Dialog d = new Dialog(MainActivity.this);
                 d.setContentView(R.layout.dailogboxforchecktokenstatus);
-                d.setTitle("    CHOOSE");
+              //  d.setTitle("    CHOOSE");
                 d.show();
                 rfb = (RadioButton)d.findViewById(R.id.gofb);
                 rtw = (RadioButton)d.findViewById(R.id.gotw);
