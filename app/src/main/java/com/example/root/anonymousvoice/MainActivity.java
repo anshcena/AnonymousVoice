@@ -14,14 +14,16 @@ import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+import java.net.Inet4Address;
+
+public class MainActivity extends AppCompatActivity  {
 
 
 
     Button generatetoken,exit;
     ImageButton facebookb,twitterb;
     RadioGroup r;
-    private RadioButton rfb,rtw,rstatus;
+    RadioButton rfb,rtw,rstatus;
 
 
     @Override
@@ -34,11 +36,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         facebookb = (ImageButton) findViewById(R.id.fbbutton);
         twitterb = (ImageButton) findViewById(R.id.twbutton);
         generatetoken = (Button) findViewById(R.id.status);
-        exit = (Button) findViewById(R.id.exit);
+        exit = (Button)findViewById(R.id.exit);
         r = (RadioGroup) findViewById(R.id.radio);
-        rfb = (RadioButton) findViewById(R.id.gofb);
-        rtw = (RadioButton) findViewById(R.id.gotw);
-        rstatus = (RadioButton) findViewById(R.id.checkstatus);
 
 
 
@@ -74,29 +73,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View view) {
                 final Dialog d = new Dialog(MainActivity.this);
                 d.setContentView(R.layout.dailogboxforchecktokenstatus);
-                d.setTitle("CHOOSE");
-
-
-
-                public void onRadioButtonClicked(View view) {
-                    // Is the button now checked
-                    boolean checked = ((RadioButton) view).isChecked();
-
-                    // Check which radio button was clicked
-                    switch(view.getId()) {
-                        case R.id.gofb:
-                            if (checked)
-
-                                break;
-                        case R.id.gotw:
-                            if (checked)
-
-                                break;
-                    }
-                }
-
-
+                d.setTitle("    CHOOSE");
                 d.show();
+                rfb = (RadioButton)d.findViewById(R.id.gofb);
+                rtw = (RadioButton)d.findViewById(R.id.gotw);
+                rstatus = (RadioButton)d.findViewById(R.id.checkstatus);
+
+                rfb.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        Intent ii=new Intent(getApplicationContext(),Facebookpage.class);
+                        startActivity(ii);
+                    }
+                });
+
+                rtw.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent jj=new Intent(getApplicationContext(),TwitterActivity.class);
+                        startActivity(jj);
+                    }
+                });
+
+                rstatus.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent kk=new Intent(getApplicationContext(),TokenStatus.class);
+                        startActivity(kk);
+                    }
+                });
 
             }
         });
@@ -134,18 +140,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId())
-        {
-            case R.id.gofb:
-                break;
-            case R.id.gotw:
-                break;
-            case R.id.checkstatus:
-                break;
-
-        }
-
-    }
 }
