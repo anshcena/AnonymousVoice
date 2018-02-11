@@ -19,7 +19,7 @@ public class Facebookpage extends AppCompatActivity {
         fblink.getSettings().setJavaScriptEnabled(true);
         fblink.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
         fblink.setWebViewClient(new WebViewClient());
-        fblink.loadUrl("http://www.google.com");
+        fblink.loadUrl("https://www.facebook.com/anonymousvoicecomplaints/");
 
 
     }

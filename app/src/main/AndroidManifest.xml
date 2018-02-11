@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.root.anonymousvoice">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -20,7 +21,8 @@
         <activity android:name=".FbActivity" />
         <activity android:name=".TwitterActivity" />
         <activity android:name=".Facebookpage" />
-        <activity android:name=".TokenStatus"></activity>
+        <activity android:name=".TokenStatus" />
+        <activity android:name=".TwitterAccount"></activity>
     </application>
 
 </manifest>

@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity  {
                 rtw.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent jj=new Intent(getApplicationContext(),TwitterActivity.class);
+                        Intent jj=new Intent(getApplicationContext(),TwitterAccount.class);
                         startActivity(jj);
                     }
                 });
