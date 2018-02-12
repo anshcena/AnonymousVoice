@@ -13,11 +13,17 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 
 import static android.os.Build.VERSION_CODES.O;
 
@@ -91,11 +97,32 @@ public class FbActivity extends AppCompatActivity {
         Postfacebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String  des = description.getText().toString();
 
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("message");
+                //check whether the des empty or not
+                if(des.length()>0 && category.getSelectedItem().toString() != "-----blank-----") {
+                    HttpClient httpclient = new DefaultHttpClient();
+                    HttpPost httppost = new HttpPost("http://www.google.com/");
 
-                myRef.setValue("Hello, World!");
+                    try {
+                        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+                        //nameValuePairs.add(new BasicNameValuePair("id", "01"));
+                        nameValuePairs.add(new BasicNameValuePair("description", des));
+                        nameValuePairs.add(new BasicNameValuePair("category", category.getSelectedItem().toString()));
+                        nameValuePairs.add(new BasicNameValuePair("media", attachment.toString()));
+                        httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+                        httpclient.execute(httppost);
+                        //description.setText(""); //reset the message text field
+                        Toast.makeText(getBaseContext(),"Sent message to server",Toast.LENGTH_SHORT).show();
+                    } catch (ClientProtocolException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    //display message if text field is empty
+                    Toast.makeText(getBaseContext(),"All fields are required",Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
