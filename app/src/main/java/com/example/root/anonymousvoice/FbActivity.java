@@ -100,7 +100,7 @@ public class FbActivity extends AppCompatActivity {
                 String  des = description.getText().toString();
 
                 //check whether the des empty or not
-                if(des.length()>0 && category.getSelectedItem().toString() != "-----blank-----") {
+                if(des.length()>0 || category.getSelectedItem().toString() != "-----Blank-----") {
                     HttpClient httpclient = new DefaultHttpClient();
                     HttpPost httppost = new HttpPost("http://www.google.com/");
 
