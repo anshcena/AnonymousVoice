@@ -27,6 +27,7 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +38,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.mime.MultipartEntity;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -55,7 +57,7 @@ public class FbActivity extends AppCompatActivity  {
     private static final int MY_INTENT_CLICK=302;
     String des = "";
     String inputdata;
-
+    String selectedImagePath;
 
 
 
@@ -131,9 +133,27 @@ public class FbActivity extends AppCompatActivity  {
         Postfacebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
-
-
+                HttpClient client=new DefaultHttpClient();
+                HttpPost post=new HttpPost("19http://192.168.43.35:8000/facebookPOST");
+                File file=new File(selectedImagePath);
+                MultipartEntity e=new MultipartEntity();
+                try {
+                    e.addPart("description",new StringBody(des));
+                } catch (UnsupportedEncodingException e1) {
+                    e1.printStackTrace();
+                }
+                try {
+                    e.addPart("category",new StringBody(category.getSelectedItem().toString()));
+                } catch (UnsupportedEncodingException e1) {
+                    e1.printStackTrace();
+                }
+                e.addPart("media",new FileBody(file));
+                post.setEntity(e);
+                try {
+                    HttpResponse response=client.execute(post);
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             }
         });
 
@@ -150,7 +170,7 @@ public class FbActivity extends AppCompatActivity  {
                     {
 
 
-                        String selectedImagePath;
+
                         Uri selectedImageUri = data.getData();
 
                         //MEDIA GALLERY
