@@ -134,7 +134,7 @@ public class FbActivity extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
                 HttpClient client=new DefaultHttpClient();
-                HttpPost post=new HttpPost("19http://192.168.43.35:8000/facebookPOST");
+                HttpPost post=new HttpPost("http://192.168.43.35:8000/facebookPOST");
                 File file=new File(selectedImagePath);
                 MultipartEntity e=new MultipartEntity();
                 try {
