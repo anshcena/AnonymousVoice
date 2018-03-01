@@ -134,7 +134,7 @@ public class FbActivity extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
                 HttpClient client=new DefaultHttpClient();
-                HttpPost post=new HttpPost("http://192.168.43.35:8000/facebookPOST");
+                HttpPost post=new HttpPost("http://192.168.43.35:8000");
                 File file=new File(selectedImagePath);
                 MultipartEntity e=new MultipartEntity();
                 try {
@@ -176,7 +176,6 @@ public class FbActivity extends AppCompatActivity  {
                         //MEDIA GALLERY
                         selectedImagePath = ImageFilePath.getPath(getApplicationContext(), selectedImageUri);
                         Log.i("Image File Path", ""+selectedImagePath);
-
 
                         textFile.setText("File selected : \n"+selectedImagePath);
                     }
